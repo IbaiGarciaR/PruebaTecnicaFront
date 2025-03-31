@@ -1,6 +1,19 @@
+import { importProvidersFrom } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import { RouterModule } from '@angular/router';
+import { UserFormComponent } from './app/components/user-form/user-form.component';
+import { UserListComponent } from './app/components/user-list/user-list.component';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+const routes = [
+  { path: '', component: UserListComponent },
+  { path: 'user/new', component: UserFormComponent },
+  { path: 'user/edit/:id', component: UserFormComponent },
+  { path: 'user/:id', component: UserFormComponent },
+];
+
+bootstrapApplication(UserListComponent, {
+  providers: [
+    importProvidersFrom(FormsModule, RouterModule.forRoot(routes))
+  ]
+}).catch(err => console.error(err));

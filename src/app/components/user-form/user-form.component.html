@@ -1,0 +1,51 @@
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" [(ngModel)]="user.nombre" name="nombre" required>
+  </div>
+
+  <div>
+    <label for="nif">NIF o Pasaporte:</label>
+    <input type="text" id="nif" [(ngModel)]="user.nif" name="nif" required>
+  </div>
+
+  <div>
+    <label for="genero">Género:</label>
+    <input type="text" id="genero" [(ngModel)]="user.genero" name="genero">
+  </div>
+
+  <div>
+    <label for="fechaNac">Fecha de nacimiento:</label>
+    <input type="date" id="fechaNac" [(ngModel)]="user.fechaNac" name="fechaNac" required>
+  </div>
+
+  <div>
+    <label for="calle">Calle:</label>
+    <input type="text" id="calle" [(ngModel)]="user.direccion!.calle" name="calle" required>
+  </div>
+
+  <div>
+    <label for="numero">Número:</label>
+    <input type="text" id="numero" [(ngModel)]="user.direccion!.numero" name="numero" required>
+  </div>
+
+  <div>
+    <label for="puerta">Puerta:</label>
+    <input type="text" id="puerta" [(ngModel)]="user.direccion!.puerta" name="puerta">
+  </div>
+
+  <div>
+    <label for="codigoPostal">Código postal:</label>
+    <input type="text" id="codigoPostal" [(ngModel)]="user.direccion!.codigopostal" name="codigoPostal" required>
+  </div>
+
+  <div>
+    <label for="ciudad">Ciudad:</label>
+    <input type="text" id="ciudad" [(ngModel)]="user.direccion!.ciudad" name="ciudad" required>
+  </div>
+
+  <div>
+    <button type="submit">Guardar</button>
+    <button type="button" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>

@@ -1,0 +1,31 @@
+<div>
+  <label for="tipoUsuario">Filtrar por tipo:</label>
+  <select [(ngModel)]="tipoFiltro" id="tipoUsuario">
+    <option value="all">Todos</option>
+    <option value="demandante">Demandante</option>
+    <option value="empleado">Empleado</option>
+  </select>
+</div>
+
+<button (click)="nuevoUsuario()">Nuevo usuario</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of filterUsers()">
+      <td>{{ user.nombre }}</td>
+      <td>{{ user.tipo }}</td>
+      <td>
+        <button (click)="verUsuario(user.id)">Ver</button>
+        <button (click)="editarUsuario(user.id)">Editar</button>
+        <button (click)="borrarUsuario(user.id)">Borrar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
